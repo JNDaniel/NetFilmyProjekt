@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="filmdbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Aktor">
+          <Key>
+            <PropertyRef Name="aktor_id" />
+          </Key>
+          <Property Name="aktor_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_urodzenia" Type="varchar" MaxLength="255" />
+          <Property Name="imie" Type="varchar" MaxLength="255" />
+          <Property Name="narodowosc" Type="varchar" MaxLength="255" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="film_id" />
+          </Key>
+          <Property Name="film_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="box_office" Type="real" />
+          <Property Name="jezyk" Type="varchar" MaxLength="255" />
+          <Property Name="rok_prod" Type="smallint" />
+          <Property Name="tytul" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="film_aktor">
+          <Key>
+            <PropertyRef Name="aktor_id" />
+            <PropertyRef Name="film_id" />
+          </Key>
+          <Property Name="aktor_id" Type="int" Nullable="false" />
+          <Property Name="film_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="film_gatunek">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="gatunek_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="gatunek_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="film_kraj">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="kraj_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="kraj_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="film_rezyser">
+          <Key>
+            <PropertyRef Name="film_id" />
+            <PropertyRef Name="rezyser_id" />
+          </Key>
+          <Property Name="film_id" Type="int" Nullable="false" />
+          <Property Name="rezyser_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="gatunek_id" />
+          </Key>
+          <Property Name="gatunek_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Kraj">
+          <Key>
+            <PropertyRef Name="kraj_id" />
+          </Key>
+          <Property Name="kraj_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazwa" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Rezyser">
+          <Key>
+            <PropertyRef Name="rezyser_id" />
+          </Key>
+          <Property Name="rezyser_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="data_urodzenia" Type="varchar" MaxLength="255" />
+          <Property Name="imie" Type="varchar" MaxLength="255" />
+          <Property Name="narodowosc" Type="varchar" MaxLength="255" />
+          <Property Name="nazwisko" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <Association Name="film_gatunek_film_id">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="film_gatunek" Type="Self.film_gatunek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="film_id" />
+            </Principal>
+            <Dependent Role="film_gatunek">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="film_gatunekgatunek_id">
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="1" />
+          <End Role="film_gatunek" Type="Self.film_gatunek" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Gatunek">
+              <PropertyRef Name="gatunek_id" />
+            </Principal>
+            <Dependent Role="film_gatunek">
+              <PropertyRef Name="gatunek_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="film_rezyser_film_id">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="film_rezyser" Type="Self.film_rezyser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="film_id" />
+            </Principal>
+            <Dependent Role="film_rezyser">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="film_rezyserrezyser_id">
+          <End Role="Rezyser" Type="Self.Rezyser" Multiplicity="1" />
+          <End Role="film_rezyser" Type="Self.film_rezyser" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rezyser">
+              <PropertyRef Name="rezyser_id" />
+            </Principal>
+            <Dependent Role="film_rezyser">
+              <PropertyRef Name="rezyser_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_film_aktor_aktor_id">
+          <End Role="Aktor" Type="Self.Aktor" Multiplicity="1" />
+          <End Role="film_aktor" Type="Self.film_aktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Aktor">
+              <PropertyRef Name="aktor_id" />
+            </Principal>
+            <Dependent Role="film_aktor">
+              <PropertyRef Name="aktor_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_film_aktor_film_id">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="film_aktor" Type="Self.film_aktor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="film_id" />
+            </Principal>
+            <Dependent Role="film_aktor">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_film_kraj_film_id">
+          <End Role="Film" Type="Self.Film" Multiplicity="1" />
+          <End Role="film_kraj" Type="Self.film_kraj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Film">
+              <PropertyRef Name="film_id" />
+            </Principal>
+            <Dependent Role="film_kraj">
+              <PropertyRef Name="film_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_film_kraj_kraj_id">
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="1" />
+          <End Role="film_kraj" Type="Self.film_kraj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kraj">
+              <PropertyRef Name="kraj_id" />
+            </Principal>
+            <Dependent Role="film_kraj">
+              <PropertyRef Name="kraj_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="filmdbModelStoreContainer">
+          <EntitySet Name="Aktor" EntityType="Self.Aktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Film" EntityType="Self.Film" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="film_aktor" EntityType="Self.film_aktor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="film_gatunek" EntityType="Self.film_gatunek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="film_kraj" EntityType="Self.film_kraj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="film_rezyser" EntityType="Self.film_rezyser" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kraj" EntityType="Self.Kraj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rezyser" EntityType="Self.Rezyser" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="film_gatunek_film_id" Association="Self.film_gatunek_film_id">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="film_gatunek" EntitySet="film_gatunek" />
+          </AssociationSet>
+          <AssociationSet Name="film_gatunekgatunek_id" Association="Self.film_gatunekgatunek_id">
+            <End Role="Gatunek" EntitySet="Gatunek" />
+            <End Role="film_gatunek" EntitySet="film_gatunek" />
+          </AssociationSet>
+          <AssociationSet Name="film_rezyser_film_id" Association="Self.film_rezyser_film_id">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="film_rezyser" EntitySet="film_rezyser" />
+          </AssociationSet>
+          <AssociationSet Name="film_rezyserrezyser_id" Association="Self.film_rezyserrezyser_id">
+            <End Role="Rezyser" EntitySet="Rezyser" />
+            <End Role="film_rezyser" EntitySet="film_rezyser" />
+          </AssociationSet>
+          <AssociationSet Name="FK_film_aktor_aktor_id" Association="Self.FK_film_aktor_aktor_id">
+            <End Role="Aktor" EntitySet="Aktor" />
+            <End Role="film_aktor" EntitySet="film_aktor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_film_aktor_film_id" Association="Self.FK_film_aktor_film_id">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="film_aktor" EntitySet="film_aktor" />
+          </AssociationSet>
+          <AssociationSet Name="FK_film_kraj_film_id" Association="Self.FK_film_kraj_film_id">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="film_kraj" EntitySet="film_kraj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_film_kraj_kraj_id" Association="Self.FK_film_kraj_kraj_id">
+            <End Role="Kraj" EntitySet="Kraj" />
+            <End Role="film_kraj" EntitySet="film_kraj" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="filmdbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Aktor">
+          <Key>
+            <PropertyRef Name="aktor_id" />
+          </Key>
+          <Property Name="aktor_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_urodzenia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="imie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="narodowosc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Film" Relationship="Self.film_aktor" FromRole="Aktor" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Film">
+          <Key>
+            <PropertyRef Name="film_id" />
+          </Key>
+          <Property Name="film_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="box_office" Type="Single" />
+          <Property Name="jezyk" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="rok_prod" Type="Int16" />
+          <Property Name="tytul" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Aktor" Relationship="Self.film_aktor" FromRole="Film" ToRole="Aktor" />
+          <NavigationProperty Name="Gatunek" Relationship="Self.film_gatunek" FromRole="Film" ToRole="Gatunek" />
+          <NavigationProperty Name="Kraj" Relationship="Self.film_kraj" FromRole="Film" ToRole="Kraj" />
+          <NavigationProperty Name="Rezyser" Relationship="Self.film_rezyser" FromRole="Film" ToRole="Rezyser" />
+        </EntityType>
+        <EntityType Name="Gatunek">
+          <Key>
+            <PropertyRef Name="gatunek_id" />
+          </Key>
+          <Property Name="gatunek_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Film" Relationship="Self.film_gatunek" FromRole="Gatunek" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Kraj">
+          <Key>
+            <PropertyRef Name="kraj_id" />
+          </Key>
+          <Property Name="kraj_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazwa" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Film" Relationship="Self.film_kraj" FromRole="Kraj" ToRole="Film" />
+        </EntityType>
+        <EntityType Name="Rezyser">
+          <Key>
+            <PropertyRef Name="rezyser_id" />
+          </Key>
+          <Property Name="rezyser_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="data_urodzenia" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="imie" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="narodowosc" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="nazwisko" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Film" Relationship="Self.film_rezyser" FromRole="Rezyser" ToRole="Film" />
+        </EntityType>
+        <Association Name="film_aktor">
+          <End Role="Aktor" Type="Self.Aktor" Multiplicity="*" />
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+        </Association>
+        <Association Name="film_gatunek">
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+          <End Role="Gatunek" Type="Self.Gatunek" Multiplicity="*" />
+        </Association>
+        <Association Name="film_kraj">
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+          <End Role="Kraj" Type="Self.Kraj" Multiplicity="*" />
+        </Association>
+        <Association Name="film_rezyser">
+          <End Role="Film" Type="Self.Film" Multiplicity="*" />
+          <End Role="Rezyser" Type="Self.Rezyser" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="filmdbEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Aktor" EntityType="Self.Aktor" />
+          <EntitySet Name="Film" EntityType="Self.Film" />
+          <EntitySet Name="Gatunek" EntityType="Self.Gatunek" />
+          <EntitySet Name="Kraj" EntityType="Self.Kraj" />
+          <EntitySet Name="Rezyser" EntityType="Self.Rezyser" />
+          <AssociationSet Name="film_aktor" Association="Self.film_aktor">
+            <End Role="Aktor" EntitySet="Aktor" />
+            <End Role="Film" EntitySet="Film" />
+          </AssociationSet>
+          <AssociationSet Name="film_gatunek" Association="Self.film_gatunek">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Gatunek" EntitySet="Gatunek" />
+          </AssociationSet>
+          <AssociationSet Name="film_kraj" Association="Self.film_kraj">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Kraj" EntitySet="Kraj" />
+          </AssociationSet>
+          <AssociationSet Name="film_rezyser" Association="Self.film_rezyser">
+            <End Role="Film" EntitySet="Film" />
+            <End Role="Rezyser" EntitySet="Rezyser" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="filmdbModelStoreContainer" CdmEntityContainer="filmdbEntities">
+          <EntitySetMapping Name="Aktor">
+            <EntityTypeMapping TypeName="filmdbModel.Aktor">
+              <MappingFragment StoreEntitySet="Aktor">
+                <ScalarProperty Name="aktor_id" ColumnName="aktor_id" />
+                <ScalarProperty Name="data_urodzenia" ColumnName="data_urodzenia" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="narodowosc" ColumnName="narodowosc" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Film">
+            <EntityTypeMapping TypeName="filmdbModel.Film">
+              <MappingFragment StoreEntitySet="Film">
+                <ScalarProperty Name="film_id" ColumnName="film_id" />
+                <ScalarProperty Name="box_office" ColumnName="box_office" />
+                <ScalarProperty Name="jezyk" ColumnName="jezyk" />
+                <ScalarProperty Name="rok_prod" ColumnName="rok_prod" />
+                <ScalarProperty Name="tytul" ColumnName="tytul" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gatunek">
+            <EntityTypeMapping TypeName="filmdbModel.Gatunek">
+              <MappingFragment StoreEntitySet="Gatunek">
+                <ScalarProperty Name="gatunek_id" ColumnName="gatunek_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kraj">
+            <EntityTypeMapping TypeName="filmdbModel.Kraj">
+              <MappingFragment StoreEntitySet="Kraj">
+                <ScalarProperty Name="kraj_id" ColumnName="kraj_id" />
+                <ScalarProperty Name="nazwa" ColumnName="nazwa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rezyser">
+            <EntityTypeMapping TypeName="filmdbModel.Rezyser">
+              <MappingFragment StoreEntitySet="Rezyser">
+                <ScalarProperty Name="rezyser_id" ColumnName="rezyser_id" />
+                <ScalarProperty Name="data_urodzenia" ColumnName="data_urodzenia" />
+                <ScalarProperty Name="imie" ColumnName="imie" />
+                <ScalarProperty Name="narodowosc" ColumnName="narodowosc" />
+                <ScalarProperty Name="nazwisko" ColumnName="nazwisko" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="film_aktor" TypeName="filmdbModel.film_aktor" StoreEntitySet="film_aktor">
+            <EndProperty Name="Aktor">
+              <ScalarProperty Name="aktor_id" ColumnName="aktor_id" />
+            </EndProperty>
+            <EndProperty Name="Film">
+              <ScalarProperty Name="film_id" ColumnName="film_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="film_gatunek" TypeName="filmdbModel.film_gatunek" StoreEntitySet="film_gatunek">
+            <EndProperty Name="Film">
+              <ScalarProperty Name="film_id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="Gatunek">
+              <ScalarProperty Name="gatunek_id" ColumnName="gatunek_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="film_kraj" TypeName="filmdbModel.film_kraj" StoreEntitySet="film_kraj">
+            <EndProperty Name="Film">
+              <ScalarProperty Name="film_id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="Kraj">
+              <ScalarProperty Name="kraj_id" ColumnName="kraj_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <AssociationSetMapping Name="film_rezyser" TypeName="filmdbModel.film_rezyser" StoreEntitySet="film_rezyser">
+            <EndProperty Name="Film">
+              <ScalarProperty Name="film_id" ColumnName="film_id" />
+            </EndProperty>
+            <EndProperty Name="Rezyser">
+              <ScalarProperty Name="rezyser_id" ColumnName="rezyser_id" />
+            </EndProperty>
+          </AssociationSetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
