@@ -22,20 +22,28 @@ namespace NetFilmyProjekt
             this.Kraj = new HashSet<Kraj>();
             this.Rezyser = new HashSet<Rezyser>();
         }
-    
+        [IgnoreDuringToString]
         public int film_id { get; set; }
         public Nullable<float> box_office { get; set; }
         public string jezyk { get; set; }
         public Nullable<short> rok_prod { get; set; }
         public string tytul { get; set; }
-    
+        [IgnoreDuringToString]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Aktor> Aktor { get; set; }
+        [IgnoreDuringToString]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Gatunek> Gatunek { get; set; }
+        [IgnoreDuringToString]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Kraj> Kraj { get; set; }
+        [IgnoreDuringToString]
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Rezyser> Rezyser { get; set; }
+
+        public override string ToString()
+        {
+            return string.Join(",", tytul, rok_prod, jezyk);
+        }
     }
 }
