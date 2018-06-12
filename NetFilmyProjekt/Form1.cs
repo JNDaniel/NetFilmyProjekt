@@ -28,7 +28,9 @@ namespace NetFilmyProjekt
         {
             this.Hide();
             Form kraje = new kraje();
-            kraje.Show();
+            kraje.ShowDialog();
+            this.Show();
+
 
         }
     }

@@ -48,23 +48,58 @@ namespace NetFilmyProjekt
 
         private void usunBtn_Click(object sender, EventArgs e)
         {
-            
 
             using (filmdbEntities context = new filmdbEntities())
             {
                 int rowIndex = dataGridView1.CurrentCell.RowIndex;
                 int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
+                Console.WriteLine(krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id);
                 Kraj toDelete = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
-                Console.WriteLine(toDelete);
-                //context.Kraj.Remove(toDelete);
-                // context.SaveChanges();
-                //dataGridView1.Rows.RemoveAt(rowIndex);
+                Console.WriteLine(toDelete.nazwa);
+                context.Kraj.Remove(toDelete);
+                context.SaveChanges();
+                dataGridView1.Rows.RemoveAt(rowIndex);
                 this.krajTableAdapter.Fill(this.dataSet1.Kraj);
-                // MessageBox.Show("Poprawnie usunięto " + toDelete.nazwa);
+
+                 MessageBox.Show("Poprawnie usunięto " + toDelete.nazwa);
             }
 
+        }
 
 
+        private void dataGridView1_DataBindingComplete(object sender,
+            DataGridViewBindingCompleteEventArgs e)
+        {
+            // Put each of the columns into programmatic sort mode.
+            foreach (DataGridViewColumn column in dataGridView1.Columns)
+            {
+                column.SortMode = DataGridViewColumnSortMode.Programmatic;
+            }
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            using (filmdbEntities context = new filmdbEntities())
+            {
+                int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
+                Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
+                krajZmiana.Text = toChange.nazwa;
+            }
+                
+        }
+
+        private void changeBtn_Click(object sender, EventArgs e)
+        {
+            using (filmdbEntities context = new filmdbEntities())
+            {
+                int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
+                Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
+                toChange.nazwa = krajZmiana.Text;
+                context.SaveChanges();
+                this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+            }
 
         }
     }
