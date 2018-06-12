@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NetFilmyProjekt
 {
-    public partial class Form1 : Form
+    public partial class Main : Form
     {
-        public Form1()
+        public Main()
         {
             InitializeComponent();
         }
@@ -27,11 +27,19 @@ namespace NetFilmyProjekt
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form kraje = new kraje();
+            Form kraje = new Kraje();
             kraje.ShowDialog();
             this.Show();
 
 
+        }
+
+        private void aktorzyBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form aktorzy = new Aktorzy();
+            aktorzy.ShowDialog();
+            this.Show();
         }
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace NetFilmyProjekt
 {
-    partial class kraje
+    partial class Kraje
     {
         /// <summary>
         /// Required designer variable.
@@ -41,7 +41,6 @@
             this.usunBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.dodajBtn = new System.Windows.Forms.Button();
-            this.krajZmiana = new System.Windows.Forms.TextBox();
             this.changeBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.krajBindingSource)).BeginInit();
@@ -116,7 +115,7 @@
             // 
             // usunBtn
             // 
-            this.usunBtn.Location = new System.Drawing.Point(370, 390);
+            this.usunBtn.Location = new System.Drawing.Point(113, 175);
             this.usunBtn.Name = "usunBtn";
             this.usunBtn.Size = new System.Drawing.Size(75, 23);
             this.usunBtn.TabIndex = 2;
@@ -136,7 +135,7 @@
             // 
             // dodajBtn
             // 
-            this.dodajBtn.Location = new System.Drawing.Point(114, 108);
+            this.dodajBtn.Location = new System.Drawing.Point(113, 146);
             this.dodajBtn.Name = "dodajBtn";
             this.dodajBtn.Size = new System.Drawing.Size(75, 23);
             this.dodajBtn.TabIndex = 4;
@@ -144,16 +143,9 @@
             this.dodajBtn.UseVisualStyleBackColor = true;
             this.dodajBtn.Click += new System.EventHandler(this.dodajBtn_Click);
             // 
-            // krajZmiana
-            // 
-            this.krajZmiana.Location = new System.Drawing.Point(95, 191);
-            this.krajZmiana.Name = "krajZmiana";
-            this.krajZmiana.Size = new System.Drawing.Size(112, 20);
-            this.krajZmiana.TabIndex = 5;
-            // 
             // changeBtn
             // 
-            this.changeBtn.Location = new System.Drawing.Point(114, 243);
+            this.changeBtn.Location = new System.Drawing.Point(113, 117);
             this.changeBtn.Name = "changeBtn";
             this.changeBtn.Size = new System.Drawing.Size(75, 23);
             this.changeBtn.TabIndex = 6;
@@ -161,19 +153,18 @@
             this.changeBtn.UseVisualStyleBackColor = true;
             this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
             // 
-            // kraje
+            // Kraje
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.changeBtn);
-            this.Controls.Add(this.krajZmiana);
             this.Controls.Add(this.dodajBtn);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.usunBtn);
             this.Controls.Add(this.krajText);
             this.Controls.Add(this.dataGridView1);
-            this.Name = "kraje";
+            this.Name = "Kraje";
             this.Text = "kraje";
             this.Load += new System.EventHandler(this.kraje_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
@@ -199,7 +190,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn krajidDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nazwaDataGridViewTextBoxColumn;
         public System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox krajZmiana;
         private System.Windows.Forms.Button changeBtn;
     }
 }

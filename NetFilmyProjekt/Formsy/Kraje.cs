@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace NetFilmyProjekt
 {
-    public partial class kraje : Form
+    public partial class Kraje : Form
     {
-        public kraje()
+        public Kraje()
         {
             InitializeComponent();
         }
@@ -36,10 +36,20 @@ namespace NetFilmyProjekt
                     Kraj k = new Kraj();
                     k.nazwa = krajText.Text;
                     context.Kraj.Add(k);
-                    context.SaveChanges();
-                    this.krajTableAdapter.Fill(this.dataSet1.Kraj);
-                    krajText.Text = "";
-                    MessageBox.Show("Poprawnie wstawiono " + k.nazwa);
+                    try
+                    {
+                        context.SaveChanges();
+                        this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+                        MessageBox.Show("Poprawnie wstawiono " + k.nazwa);
+                    }
+                    catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
+                    {
+                        Console.WriteLine(ex.Message);
+                    }
+                    finally
+                    {
+                        krajText.Text = "";
+                    } 
                 }
                 
                 
@@ -84,22 +94,30 @@ namespace NetFilmyProjekt
                 int rowIndex = dataGridView1.CurrentCell.RowIndex;
                 int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
                 Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
-                krajZmiana.Text = toChange.nazwa;
+                krajText.Text = toChange.nazwa;
             }
                 
         }
 
         private void changeBtn_Click(object sender, EventArgs e)
         {
-            using (filmdbEntities context = new filmdbEntities())
+            if(krajText.Text != "")
             {
-                int rowIndex = dataGridView1.CurrentCell.RowIndex;
-                int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
-                Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
-                toChange.nazwa = krajZmiana.Text;
-                context.SaveChanges();
-                this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+                using (filmdbEntities context = new filmdbEntities())
+                {
+                    int rowIndex = dataGridView1.CurrentCell.RowIndex;
+                    int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
+                    Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
+                    toChange.nazwa = krajText.Text;
+                    context.SaveChanges();
+                    this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+                }
             }
+            else
+            {
+                MessageBox.Show("Nie możesz zmienić na pustą nazwę");
+            }
+            
 
         }
     }

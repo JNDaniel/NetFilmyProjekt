@@ -1,6 +1,6 @@
 ﻿namespace NetFilmyProjekt
 {
-    partial class Form1
+    partial class Main
     {
         /// <summary>
         /// Required designer variable.
@@ -34,7 +34,8 @@
             this.filmTableAdapter = new NetFilmyProjekt.filmdbDataSetTableAdapters.FilmTableAdapter();
             this.filmdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.krajeBtn = new System.Windows.Forms.Button();
+            this.aktorzyBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).BeginInit();
@@ -65,23 +66,34 @@
             this.filmBindingSource1.DataMember = "Film";
             this.filmBindingSource1.DataSource = this.filmdbDataSetBindingSource;
             // 
-            // button1
+            // krajeBtn
             // 
-            this.button1.Location = new System.Drawing.Point(323, 34);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(122, 68);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "KRAJE";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.krajeBtn.Location = new System.Drawing.Point(323, 34);
+            this.krajeBtn.Name = "krajeBtn";
+            this.krajeBtn.Size = new System.Drawing.Size(122, 68);
+            this.krajeBtn.TabIndex = 0;
+            this.krajeBtn.Text = "KRAJE";
+            this.krajeBtn.UseVisualStyleBackColor = true;
+            this.krajeBtn.Click += new System.EventHandler(this.button1_Click);
             // 
-            // Form1
+            // aktorzyBtn
+            // 
+            this.aktorzyBtn.Location = new System.Drawing.Point(323, 108);
+            this.aktorzyBtn.Name = "aktorzyBtn";
+            this.aktorzyBtn.Size = new System.Drawing.Size(122, 68);
+            this.aktorzyBtn.TabIndex = 1;
+            this.aktorzyBtn.Text = "AKTORZY";
+            this.aktorzyBtn.UseVisualStyleBackColor = true;
+            this.aktorzyBtn.Click += new System.EventHandler(this.aktorzyBtn_Click);
+            // 
+            // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Controls.Add(this.aktorzyBtn);
+            this.Controls.Add(this.krajeBtn);
+            this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).EndInit();
@@ -98,7 +110,8 @@
         private filmdbDataSetTableAdapters.FilmTableAdapter filmTableAdapter;
         private System.Windows.Forms.BindingSource filmBindingSource1;
         private System.Windows.Forms.BindingSource filmdbDataSetBindingSource;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button krajeBtn;
+        private System.Windows.Forms.Button aktorzyBtn;
     }
 }
 

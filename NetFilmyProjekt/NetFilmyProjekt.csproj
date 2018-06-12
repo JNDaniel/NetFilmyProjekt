@@ -65,6 +65,12 @@
     <Compile Include="Aktor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\Aktorzy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Aktorzy.Designer.cs">
+      <DependentUpon>Aktorzy.cs</DependentUpon>
+    </Compile>
     <Compile Include="DataSet1.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -78,11 +84,17 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>filmdbDataSet.xsd</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs">
+    <Compile Include="Formsy\FilmyAktora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="Formsy\FilmyAktora.Designer.cs">
+      <DependentUpon>FilmyAktora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Main.Designer.cs">
+      <DependentUpon>Main.cs</DependentUpon>
     </Compile>
     <Compile Include="Gatunek.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -90,11 +102,11 @@
     <Compile Include="Kraj.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="kraje.cs">
+    <Compile Include="Formsy\Kraje.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="kraje.Designer.cs">
-      <DependentUpon>kraje.cs</DependentUpon>
+    <Compile Include="Formsy\Kraje.Designer.cs">
+      <DependentUpon>Kraje.cs</DependentUpon>
     </Compile>
     <Compile Include="Model1.Context.cs">
       <AutoGen>True</AutoGen>
@@ -116,11 +128,17 @@
     <Compile Include="Rezyser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="Formsy\Aktorzy.resx">
+      <DependentUpon>Aktorzy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="kraje.resx">
-      <DependentUpon>kraje.cs</DependentUpon>
+    <EmbeddedResource Include="Formsy\FilmyAktora.resx">
+      <DependentUpon>FilmyAktora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Main.resx">
+      <DependentUpon>Main.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Kraje.resx">
+      <DependentUpon>Kraje.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
