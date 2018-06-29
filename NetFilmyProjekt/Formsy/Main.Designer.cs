@@ -36,6 +36,8 @@
             this.filmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.krajeBtn = new System.Windows.Forms.Button();
             this.aktorzyBtn = new System.Windows.Forms.Button();
+            this.rezyserzyBtn = new System.Windows.Forms.Button();
+            this.filmyBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).BeginInit();
@@ -86,11 +88,33 @@
             this.aktorzyBtn.UseVisualStyleBackColor = true;
             this.aktorzyBtn.Click += new System.EventHandler(this.aktorzyBtn_Click);
             // 
+            // rezyserzyBtn
+            // 
+            this.rezyserzyBtn.Location = new System.Drawing.Point(323, 182);
+            this.rezyserzyBtn.Name = "rezyserzyBtn";
+            this.rezyserzyBtn.Size = new System.Drawing.Size(122, 68);
+            this.rezyserzyBtn.TabIndex = 2;
+            this.rezyserzyBtn.Text = "REŻYSERZY";
+            this.rezyserzyBtn.UseVisualStyleBackColor = true;
+            this.rezyserzyBtn.Click += new System.EventHandler(this.rezyserzyBtn_Click);
+            // 
+            // filmyBtn
+            // 
+            this.filmyBtn.Location = new System.Drawing.Point(323, 256);
+            this.filmyBtn.Name = "filmyBtn";
+            this.filmyBtn.Size = new System.Drawing.Size(122, 68);
+            this.filmyBtn.TabIndex = 3;
+            this.filmyBtn.Text = "FILMY";
+            this.filmyBtn.UseVisualStyleBackColor = true;
+            this.filmyBtn.Click += new System.EventHandler(this.filmyBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.filmyBtn);
+            this.Controls.Add(this.rezyserzyBtn);
             this.Controls.Add(this.aktorzyBtn);
             this.Controls.Add(this.krajeBtn);
             this.Name = "Main";
@@ -112,6 +136,8 @@
         private System.Windows.Forms.BindingSource filmdbDataSetBindingSource;
         private System.Windows.Forms.Button krajeBtn;
         private System.Windows.Forms.Button aktorzyBtn;
+        private System.Windows.Forms.Button rezyserzyBtn;
+        private System.Windows.Forms.Button filmyBtn;
     }
 }
 

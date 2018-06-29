@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NetFilmyProjekt.Formsy.Filmy;
+using NetFilmyProjekt.Formsy.Rezyserzy;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -39,6 +41,23 @@ namespace NetFilmyProjekt
             this.Hide();
             Form aktorzy = new Aktorzy();
             aktorzy.ShowDialog();
+            this.Show();
+        }
+
+        private void rezyserzyBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form rezyserzy = new Rezyserzy();
+            rezyserzy.ShowDialog();
+            this.Show();
+            
+        }
+
+        private void filmyBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form filmy = new Filmy();
+            filmy.ShowDialog();
             this.Show();
         }
     }

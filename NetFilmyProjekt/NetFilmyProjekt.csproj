@@ -65,10 +65,10 @@
     <Compile Include="Aktor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="Formsy\Aktorzy.cs">
+    <Compile Include="Formsy\Aktorzy\Aktorzy.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formsy\Aktorzy.Designer.cs">
+    <Compile Include="Formsy\Aktorzy\Aktorzy.Designer.cs">
       <DependentUpon>Aktorzy.cs</DependentUpon>
     </Compile>
     <Compile Include="DataSet1.Designer.cs">
@@ -79,22 +79,35 @@
     <Compile Include="Film.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <Compile Include="filmdbDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Formsy\FilmyAktora.cs">
+    <Compile Include="Formsy\Aktorzy\FilmyAktora.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Formsy\FilmyAktora.Designer.cs">
+    <Compile Include="Formsy\Aktorzy\FilmyAktora.Designer.cs">
       <DependentUpon>FilmyAktora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Filmy\Filmy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Filmy\Filmy.Designer.cs">
+      <DependentUpon>Filmy.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\Main.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formsy\Main.Designer.cs">
       <DependentUpon>Main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Rezyserzy\FilmyRezysera.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Rezyserzy\FilmyRezysera.Designer.cs">
+      <DependentUpon>FilmyRezysera.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Rezyserzy\Rezyserzy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Rezyserzy\Rezyserzy.Designer.cs">
+      <DependentUpon>Rezyserzy.cs</DependentUpon>
     </Compile>
     <Compile Include="Gatunek.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -128,17 +141,26 @@
     <Compile Include="Rezyser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Formsy\Aktorzy.resx">
+    <EmbeddedResource Include="Formsy\Aktorzy\Aktorzy.resx">
       <DependentUpon>Aktorzy.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formsy\FilmyAktora.resx">
+    <EmbeddedResource Include="Formsy\Aktorzy\FilmyAktora.resx">
       <DependentUpon>FilmyAktora.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Filmy\Filmy.resx">
+      <DependentUpon>Filmy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Kraje.resx">
       <DependentUpon>Kraje.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Rezyserzy\FilmyRezysera.resx">
+      <DependentUpon>FilmyRezysera.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Rezyserzy\Rezyserzy.resx">
+      <DependentUpon>Rezyserzy.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -163,17 +185,6 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
-    </None>
-    <None Include="filmdbDataSet.xsc">
-      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="filmdbDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>filmdbDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="filmdbDataSet.xss">
-      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
     </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>

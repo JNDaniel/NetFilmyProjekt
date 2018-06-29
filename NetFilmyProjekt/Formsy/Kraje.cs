@@ -44,7 +44,7 @@ namespace NetFilmyProjekt
                     }
                     catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
                     {
-                        Console.WriteLine(ex.Message);
+                        MessageBox.Show(ex.Message);
                     }
                     finally
                     {
@@ -85,6 +85,7 @@ namespace NetFilmyProjekt
             {
                 column.SortMode = DataGridViewColumnSortMode.Programmatic;
             }
+            dataGridView1.ClearSelection();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)

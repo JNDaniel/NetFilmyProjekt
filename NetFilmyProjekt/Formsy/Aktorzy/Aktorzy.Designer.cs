@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.aktoridDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataurodzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.imieDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.narodowoscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nazwiskoDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.narodowoscDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataurodzeniaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.aktorBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.dataSet1 = new NetFilmyProjekt.DataSet1();
             this.aktorTableAdapter = new NetFilmyProjekt.DataSet1TableAdapters.AktorTableAdapter();
@@ -62,10 +62,10 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.aktoridDataGridViewTextBoxColumn,
-            this.dataurodzeniaDataGridViewTextBoxColumn,
             this.imieDataGridViewTextBoxColumn,
+            this.nazwiskoDataGridViewTextBoxColumn,
             this.narodowoscDataGridViewTextBoxColumn,
-            this.nazwiskoDataGridViewTextBoxColumn});
+            this.dataurodzeniaDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.aktorBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Right;
             this.dataGridView1.Location = new System.Drawing.Point(254, 0);
@@ -75,6 +75,7 @@
             this.dataGridView1.Size = new System.Drawing.Size(546, 450);
             this.dataGridView1.TabIndex = 0;
             this.dataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellClick);
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.dataGridView1_DataBindingComplete);
             // 
             // aktoridDataGridViewTextBoxColumn
             // 
@@ -83,17 +84,17 @@
             this.aktoridDataGridViewTextBoxColumn.Name = "aktoridDataGridViewTextBoxColumn";
             this.aktoridDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // dataurodzeniaDataGridViewTextBoxColumn
-            // 
-            this.dataurodzeniaDataGridViewTextBoxColumn.DataPropertyName = "data_urodzenia";
-            this.dataurodzeniaDataGridViewTextBoxColumn.HeaderText = "data_urodzenia";
-            this.dataurodzeniaDataGridViewTextBoxColumn.Name = "dataurodzeniaDataGridViewTextBoxColumn";
-            // 
             // imieDataGridViewTextBoxColumn
             // 
             this.imieDataGridViewTextBoxColumn.DataPropertyName = "imie";
             this.imieDataGridViewTextBoxColumn.HeaderText = "imie";
             this.imieDataGridViewTextBoxColumn.Name = "imieDataGridViewTextBoxColumn";
+            // 
+            // nazwiskoDataGridViewTextBoxColumn
+            // 
+            this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "nazwisko";
+            this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
             // 
             // narodowoscDataGridViewTextBoxColumn
             // 
@@ -101,11 +102,11 @@
             this.narodowoscDataGridViewTextBoxColumn.HeaderText = "narodowosc";
             this.narodowoscDataGridViewTextBoxColumn.Name = "narodowoscDataGridViewTextBoxColumn";
             // 
-            // nazwiskoDataGridViewTextBoxColumn
+            // dataurodzeniaDataGridViewTextBoxColumn
             // 
-            this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "nazwisko";
-            this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
+            this.dataurodzeniaDataGridViewTextBoxColumn.DataPropertyName = "data_urodzenia";
+            this.dataurodzeniaDataGridViewTextBoxColumn.HeaderText = "data_urodzenia";
+            this.dataurodzeniaDataGridViewTextBoxColumn.Name = "dataurodzeniaDataGridViewTextBoxColumn";
             // 
             // aktorBindingSource
             // 
@@ -261,11 +262,6 @@
         private DataSet1 dataSet1;
         private System.Windows.Forms.BindingSource aktorBindingSource;
         private DataSet1TableAdapters.AktorTableAdapter aktorTableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn aktoridDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataurodzeniaDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn narodowoscDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox imieTxt;
         private System.Windows.Forms.TextBox nazwiskoTxt;
@@ -278,5 +274,10 @@
         private System.Windows.Forms.Button usunBtn;
         private System.Windows.Forms.Button dodajBtn;
         private System.Windows.Forms.Button filmyBtn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn aktoridDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn imieDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nazwiskoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn narodowoscDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataurodzeniaDataGridViewTextBoxColumn;
     }
 }

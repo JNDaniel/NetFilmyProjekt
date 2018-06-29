@@ -1,4 +1,5 @@
-﻿using System;
+﻿//using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -8,24 +9,24 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace NetFilmyProjekt
+namespace NetFilmyProjekt.Formsy.Rezyserzy
 {
-    public partial class Aktorzy : Form
+    public partial class Rezyserzy : Form
     {
-        public Aktorzy()
+        public static int idRezysera
+        {
+        get;
+        set;
+        }
+        public Rezyserzy()
         {
             InitializeComponent();
         }
 
-        private void Aktorzy_Load(object sender, EventArgs e)
+        private void Rezyserzy_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'dataSet1.Aktor' table. You can move, or remove it, as needed.
-            this.aktorTableAdapter.Fill(this.dataSet1.Aktor);
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
+            // TODO: This line of code loads data into the 'dataSet1.Rezyser' table. You can move, or remove it, as needed.
+            this.rezyserTableAdapter.Fill(this.dataSet1.Rezyser);
 
         }
 
@@ -36,48 +37,47 @@ namespace NetFilmyProjekt
                 BindingManagerBase bm = null;
                 bm = dataGridView1.BindingContext[dataGridView1.DataSource, dataGridView1.DataMember];
                 DataRow findRow = ((DataRowView)bm.Current).Row;
-                int rowIndex = dataSet1.Tables["Aktor"].Rows.IndexOf(findRow);
+                int rowIndex = dataSet1.Tables["Rezyser"].Rows.IndexOf(findRow);
                 try
                 {
-                    int id = aktorTableAdapter.GetData().ElementAt(rowIndex).aktor_id;
-                    Aktor toChange = context.Aktor.FirstOrDefault(k => k.aktor_id == id);
+                    int id = rezyserTableAdapter.GetData().ElementAt(rowIndex).rezyser_id;
+                    Rezyser toChange = context.Rezyser.Find(id);
                     imieTxt.Text = toChange.imie;
                     nazwiskoTxt.Text = toChange.nazwisko;
                     narodowoscTxt.Text = toChange.narodowosc;
                     dataUrTxt.Text = toChange.data_urodzenia;
                 }
-                catch(System.ArgumentOutOfRangeException ex)
+                catch (System.ArgumentOutOfRangeException ex)
                 {
                     MessageBox.Show(ex.Message);
-                }        
+                }
             }
         }
 
         private void zmienBtn_Click(object sender, EventArgs e)
         {
-            if(imieTxt.Text != "" && nazwiskoTxt.Text != "")
+            if (imieTxt.Text != "" && nazwiskoTxt.Text != "")
             {
                 using (filmdbEntities context = new filmdbEntities())
                 {
                     BindingManagerBase bm = null;
                     bm = dataGridView1.BindingContext[dataGridView1.DataSource, dataGridView1.DataMember];
                     DataRow findRow = ((DataRowView)bm.Current).Row;
-                    int rowIndex = dataSet1.Tables["Aktor"].Rows.IndexOf(findRow);
-                    int id = aktorTableAdapter.GetData().ElementAt(rowIndex).aktor_id;
-                    Aktor toChange = context.Aktor.FirstOrDefault(k => k.aktor_id == id);
+                    int rowIndex = dataSet1.Tables["Rezyser"].Rows.IndexOf(findRow);
+                    int id = rezyserTableAdapter.GetData().ElementAt(rowIndex).rezyser_id;
+                    Rezyser toChange = context.Rezyser.Find(id);
                     toChange.imie = imieTxt.Text;
                     toChange.nazwisko = nazwiskoTxt.Text;
                     toChange.narodowosc = narodowoscTxt.Text;
                     toChange.data_urodzenia = dataUrTxt.Text;
                     context.SaveChanges();
-                    this.aktorTableAdapter.Fill(this.dataSet1.Aktor);
+                    this.rezyserTableAdapter.Fill(this.dataSet1.Rezyser);
                 }
             }
             else
             {
                 MessageBox.Show("Imie i nazwisko nie mogą być puste");
             }
-
         }
 
         private void dodajBtn_Click(object sender, EventArgs e)
@@ -86,15 +86,15 @@ namespace NetFilmyProjekt
             {
                 using (filmdbEntities context = new filmdbEntities())
                 {
-                    Aktor toChange = new Aktor();
+                    Rezyser toChange = new Rezyser();
                     toChange.imie = imieTxt.Text;
                     toChange.nazwisko = nazwiskoTxt.Text;
                     toChange.narodowosc = narodowoscTxt.Text;
                     toChange.data_urodzenia = dataUrTxt.Text;
-                    context.Aktor.Add(toChange);
+                    context.Rezyser.Add(toChange);
                     context.SaveChanges();
-                    this.aktorTableAdapter.Fill(this.dataSet1.Aktor);
-                    MessageBox.Show("Pomyślnie dodano nowego aktora");
+                    this.rezyserTableAdapter.Fill(this.dataSet1.Rezyser);
+                    MessageBox.Show("Pomyślnie dodano nowego reżysera");
                     imieTxt.Text = "";
                     nazwiskoTxt.Text = "";
                     narodowoscTxt.Text = "";
@@ -114,51 +114,63 @@ namespace NetFilmyProjekt
                 BindingManagerBase bm = null;
                 bm = dataGridView1.BindingContext[dataGridView1.DataSource, dataGridView1.DataMember];
                 DataRow findRow = ((DataRowView)bm.Current).Row;
-                int rowIndex = dataSet1.Tables["Aktor"].Rows.IndexOf(findRow);
-                int id = aktorTableAdapter.GetData().ElementAt(rowIndex).aktor_id;
-                Aktor toChange = context.Aktor.FirstOrDefault(k => k.aktor_id == id);
-                context.Aktor.Remove(toChange);
+                int rowIndex = dataSet1.Tables["Rezyser"].Rows.IndexOf(findRow);
+                int id = rezyserTableAdapter.GetData().ElementAt(rowIndex).rezyser_id;
+                Rezyser toChange = context.Rezyser.Find(id);
+                context.Rezyser.Remove(toChange);
                 try
                 {
                     context.SaveChanges();
                     dataGridView1.Rows.RemoveAt(rowIndex);
-                    this.aktorTableAdapter.Fill(this.dataSet1.Aktor);
+                    this.rezyserTableAdapter.Fill(this.dataSet1.Rezyser);
                     MessageBox.Show("Poprawnie usunięto");
                     imieTxt.Text = "";
                     nazwiskoTxt.Text = "";
                     narodowoscTxt.Text = "";
                     dataUrTxt.Text = "";
                 }
-                catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
+                catch (System.Data.Entity.Infrastructure.DbUpdateException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
-                
+
             }
         }
 
         private void filmyBtn_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.SelectedCells.Count == 0)
+            {
+                MessageBox.Show("Brak zaznaczenia");
+                return;
+            }
             using (filmdbEntities context = new filmdbEntities())
             {
                 BindingManagerBase bm = null;
                 bm = dataGridView1.BindingContext[dataGridView1.DataSource, dataGridView1.DataMember];
                 DataRow findRow = ((DataRowView)bm.Current).Row;
-                int rowIndex = dataSet1.Tables["Aktor"].Rows.IndexOf(findRow);
+                int rowIndex = dataSet1.Tables["Rezyser"].Rows.IndexOf(findRow);
                 try
                 {
-                    int id = aktorTableAdapter.GetData().ElementAt(rowIndex).aktor_id;
-                    Aktor toChange = context.Aktor.FirstOrDefault(k => k.aktor_id == id);
-                    foreach(Film f in toChange.Film)
-                    {
-                        Console.WriteLine(f.tytul);
-                    }
+                    int id = rezyserTableAdapter.GetData().ElementAt(rowIndex).rezyser_id;
+                    idRezysera = id;
                 }
                 catch (System.ArgumentOutOfRangeException ex)
                 {
                     MessageBox.Show(ex.Message);
                 }
+
             }
+
+            this.Hide();
+            Form filmyRezysera = new Filmy_rezysera();
+            filmyRezysera.ShowDialog();
+            this.Show();
+        }
+
+        private void dataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            dataGridView1.ClearSelection();
         }
     }
 }
