@@ -29,7 +29,7 @@ namespace NetFilmyProjekt
 
         private void dodajBtn_Click(object sender, EventArgs e)
         {
-            if (!krajText.Equals(""))
+            if (!krajText.Text.Trim().ToString().Equals(""))
             {
                 using(filmdbEntities context = new filmdbEntities())
                 {
@@ -44,7 +44,7 @@ namespace NetFilmyProjekt
                     }
                     catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
                     {
-                        MessageBox.Show(ex.Message);
+                        MessageBox.Show("Istnieje rekord o nazwie "+krajText.Text);
                     }
                     finally
                     {
@@ -102,7 +102,7 @@ namespace NetFilmyProjekt
 
         private void changeBtn_Click(object sender, EventArgs e)
         {
-            if(krajText.Text != "")
+            if(!krajText.Text.Trim().ToString().Equals(""))
             {
                 using (filmdbEntities context = new filmdbEntities())
                 {
@@ -110,8 +110,20 @@ namespace NetFilmyProjekt
                     int id = krajTableAdapter.GetData().ElementAt(rowIndex).kraj_id;
                     Kraj toChange = context.Kraj.FirstOrDefault(k => k.kraj_id == id);
                     toChange.nazwa = krajText.Text;
-                    context.SaveChanges();
-                    this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+                    try
+                    {
+                        context.SaveChanges();
+                        this.krajTableAdapter.Fill(this.dataSet1.Kraj);
+                    }
+                    catch(System.Data.Entity.Infrastructure.DbUpdateException ex)
+                    {
+                        MessageBox.Show("Istnieje rekord o nazwie " + krajText.Text);
+                        krajText.Text = "";
+                    }
+                    finally
+                    {
+                        toChange = null;
+                    }
                 }
             }
             else

@@ -1,4 +1,5 @@
-﻿using NetFilmyProjekt.Formsy.Filmy;
+﻿using NetFilmyProjekt.Formsy;
+using NetFilmyProjekt.Formsy.Filmy;
 using NetFilmyProjekt.Formsy.Rezyserzy;
 using System;
 using System.Collections.Generic;
@@ -58,6 +59,14 @@ namespace NetFilmyProjekt
             this.Hide();
             Form filmy = new Filmy();
             filmy.ShowDialog();
+            this.Show();
+        }
+
+        private void genresBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form gatunki = new Gatunki();
+            gatunki.ShowDialog();
             this.Show();
         }
     }

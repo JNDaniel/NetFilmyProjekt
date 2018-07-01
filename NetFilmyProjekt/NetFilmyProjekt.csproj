@@ -114,6 +114,12 @@
     <Compile Include="Formsy\Filmy\Filmy.Designer.cs">
       <DependentUpon>Filmy.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\Gatunki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Gatunki.Designer.cs">
+      <DependentUpon>Gatunki.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\Main.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,6 +187,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Filmy\Filmy.resx">
       <DependentUpon>Filmy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Gatunki.resx">
+      <DependentUpon>Gatunki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Main.resx">
       <DependentUpon>Main.cs</DependentUpon>

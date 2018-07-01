@@ -36,23 +36,11 @@
             this.aktorzyBtn = new System.Windows.Forms.Button();
             this.rezyserzyBtn = new System.Windows.Forms.Button();
             this.filmyBtn = new System.Windows.Forms.Button();
+            this.genresBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // filmBindingSource
-            // 
-            // 
-            // filmdbDataSet
-            // 
-           
-            // 
-            // filmTableAdapter
-            // 
-            // 
-            // filmdbDataSetBindingSource
-            // 
             // 
             // filmBindingSource1
             // 
@@ -61,7 +49,7 @@
             // 
             // krajeBtn
             // 
-            this.krajeBtn.Location = new System.Drawing.Point(323, 34);
+            this.krajeBtn.Location = new System.Drawing.Point(323, 256);
             this.krajeBtn.Name = "krajeBtn";
             this.krajeBtn.Size = new System.Drawing.Size(122, 68);
             this.krajeBtn.TabIndex = 0;
@@ -91,7 +79,7 @@
             // 
             // filmyBtn
             // 
-            this.filmyBtn.Location = new System.Drawing.Point(323, 256);
+            this.filmyBtn.Location = new System.Drawing.Point(323, 34);
             this.filmyBtn.Name = "filmyBtn";
             this.filmyBtn.Size = new System.Drawing.Size(122, 68);
             this.filmyBtn.TabIndex = 3;
@@ -99,11 +87,22 @@
             this.filmyBtn.UseVisualStyleBackColor = true;
             this.filmyBtn.Click += new System.EventHandler(this.filmyBtn_Click);
             // 
+            // genresBtn
+            // 
+            this.genresBtn.Location = new System.Drawing.Point(323, 330);
+            this.genresBtn.Name = "genresBtn";
+            this.genresBtn.Size = new System.Drawing.Size(122, 68);
+            this.genresBtn.TabIndex = 4;
+            this.genresBtn.Text = "GATUNKI";
+            this.genresBtn.UseVisualStyleBackColor = true;
+            this.genresBtn.Click += new System.EventHandler(this.genresBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.genresBtn);
             this.Controls.Add(this.filmyBtn);
             this.Controls.Add(this.rezyserzyBtn);
             this.Controls.Add(this.aktorzyBtn);
@@ -113,6 +112,7 @@
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -126,6 +126,7 @@
         private System.Windows.Forms.Button aktorzyBtn;
         private System.Windows.Forms.Button rezyserzyBtn;
         private System.Windows.Forms.Button filmyBtn;
+        private System.Windows.Forms.Button genresBtn;
     }
 }
 
