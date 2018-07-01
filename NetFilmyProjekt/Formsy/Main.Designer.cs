@@ -110,9 +110,6 @@
             this.Name = "Main";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }

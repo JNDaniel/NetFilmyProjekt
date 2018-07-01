@@ -195,6 +195,11 @@ namespace NetFilmyProjekt.Formsy.Filmy
 
         private void usunBtnClick(object sender, EventArgs e)
         {
+            if(dataGridView1.SelectedCells.Count==0)
+            {
+                MessageBox.Show("Brak zaznaczenia");
+                return;
+            }
             using (filmdbEntities context = new filmdbEntities())
             {
                 BindingManagerBase bm = null;

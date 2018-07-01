@@ -57,6 +57,7 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToOrderColumns = true;
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -71,6 +72,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(254, 0);
             this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(546, 450);
             this.dataGridView1.TabIndex = 0;
@@ -89,24 +91,28 @@
             this.imieDataGridViewTextBoxColumn.DataPropertyName = "imie";
             this.imieDataGridViewTextBoxColumn.HeaderText = "imie";
             this.imieDataGridViewTextBoxColumn.Name = "imieDataGridViewTextBoxColumn";
+            this.imieDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // nazwiskoDataGridViewTextBoxColumn
             // 
             this.nazwiskoDataGridViewTextBoxColumn.DataPropertyName = "nazwisko";
             this.nazwiskoDataGridViewTextBoxColumn.HeaderText = "nazwisko";
             this.nazwiskoDataGridViewTextBoxColumn.Name = "nazwiskoDataGridViewTextBoxColumn";
+            this.nazwiskoDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // narodowoscDataGridViewTextBoxColumn
             // 
             this.narodowoscDataGridViewTextBoxColumn.DataPropertyName = "narodowosc";
             this.narodowoscDataGridViewTextBoxColumn.HeaderText = "narodowosc";
             this.narodowoscDataGridViewTextBoxColumn.Name = "narodowoscDataGridViewTextBoxColumn";
+            this.narodowoscDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // dataurodzeniaDataGridViewTextBoxColumn
             // 
             this.dataurodzeniaDataGridViewTextBoxColumn.DataPropertyName = "data_urodzenia";
             this.dataurodzeniaDataGridViewTextBoxColumn.HeaderText = "data_urodzenia";
             this.dataurodzeniaDataGridViewTextBoxColumn.Name = "dataurodzeniaDataGridViewTextBoxColumn";
+            this.dataurodzeniaDataGridViewTextBoxColumn.ReadOnly = true;
             // 
             // aktorBindingSource
             // 
