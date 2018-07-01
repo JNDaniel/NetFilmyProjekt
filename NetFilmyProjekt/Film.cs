@@ -21,6 +21,7 @@ namespace NetFilmyProjekt
             this.Gatunek = new HashSet<Gatunek>();
             this.Kraj = new HashSet<Kraj>();
             this.Rezyser = new HashSet<Rezyser>();
+            
         }
     
         public int film_id { get; set; }

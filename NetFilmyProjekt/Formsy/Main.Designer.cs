@@ -30,8 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.filmBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.filmdbDataSet = new NetFilmyProjekt.filmdbDataSet();
-            this.filmTableAdapter = new NetFilmyProjekt.filmdbDataSetTableAdapters.FilmTableAdapter();
             this.filmdbDataSetBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.filmBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
             this.krajeBtn = new System.Windows.Forms.Button();
@@ -39,29 +37,22 @@
             this.rezyserzyBtn = new System.Windows.Forms.Button();
             this.filmyBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // filmBindingSource
             // 
-            this.filmBindingSource.DataMember = "Film";
-            this.filmBindingSource.DataSource = this.filmdbDataSet;
             // 
             // filmdbDataSet
             // 
-            this.filmdbDataSet.DataSetName = "filmdbDataSet";
-            this.filmdbDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+           
             // 
             // filmTableAdapter
             // 
-            this.filmTableAdapter.ClearBeforeFill = true;
             // 
             // filmdbDataSetBindingSource
             // 
-            this.filmdbDataSetBindingSource.DataSource = this.filmdbDataSet;
-            this.filmdbDataSetBindingSource.Position = 0;
             // 
             // filmBindingSource1
             // 
@@ -121,17 +112,14 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private filmdbDataSet filmdbDataSet;
+
         private System.Windows.Forms.BindingSource filmBindingSource;
-        private filmdbDataSetTableAdapters.FilmTableAdapter filmTableAdapter;
         private System.Windows.Forms.BindingSource filmBindingSource1;
         private System.Windows.Forms.BindingSource filmdbDataSetBindingSource;
         private System.Windows.Forms.Button krajeBtn;

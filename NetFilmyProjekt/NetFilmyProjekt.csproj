@@ -65,6 +65,11 @@
     <Compile Include="Aktor.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="filmdbDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\Aktorzy\Aktorzy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -84,6 +89,24 @@
     </Compile>
     <Compile Include="Formsy\Aktorzy\FilmyAktora.Designer.cs">
       <DependentUpon>FilmyAktora.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaAktorow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaAktorow.Designer.cs">
+      <DependentUpon>EdycjaAktorow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaGatunkow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaGatunkow.Designer.cs">
+      <DependentUpon>EdycjaGatunkow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaRezyserow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\Filmy\EdycjaRezyserow.Designer.cs">
+      <DependentUpon>EdycjaRezyserow.cs</DependentUpon>
     </Compile>
     <Compile Include="Formsy\Filmy\Filmy.cs">
       <SubType>Form</SubType>
@@ -147,6 +170,15 @@
     <EmbeddedResource Include="Formsy\Aktorzy\FilmyAktora.resx">
       <DependentUpon>FilmyAktora.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Filmy\EdycjaAktorow.resx">
+      <DependentUpon>EdycjaAktorow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Filmy\EdycjaGatunkow.resx">
+      <DependentUpon>EdycjaGatunkow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formsy\Filmy\EdycjaRezyserow.resx">
+      <DependentUpon>EdycjaRezyserow.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Filmy\Filmy.resx">
       <DependentUpon>Filmy.cs</DependentUpon>
     </EmbeddedResource>
@@ -185,6 +217,17 @@
     </None>
     <None Include="DataSet1.xss">
       <DependentUpon>DataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="filmdbDataSet.xsc">
+      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="filmdbDataSet.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>filmdbDataSet.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="filmdbDataSet.xss">
+      <DependentUpon>filmdbDataSet.xsd</DependentUpon>
     </None>
     <None Include="Model1.edmx.diagram">
       <DependentUpon>Model1.edmx</DependentUpon>
