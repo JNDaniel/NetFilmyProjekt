@@ -2,13 +2,6 @@
 using NetFilmyProjekt.Formsy.Filmy;
 using NetFilmyProjekt.Formsy.Rezyserzy;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace NetFilmyProjekt
@@ -34,7 +27,7 @@ namespace NetFilmyProjekt
             kraje.ShowDialog();
             this.Show();
 
-
+     
         }
 
         private void aktorzyBtn_Click(object sender, EventArgs e)
@@ -67,6 +60,14 @@ namespace NetFilmyProjekt
             this.Hide();
             Form gatunki = new Gatunki();
             gatunki.ShowDialog();
+            this.Show();
+        }
+
+        private void extraBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            Form aktorzyExtra = new AktorzyExtra();
+            aktorzyExtra.ShowDialog();
             this.Show();
         }
     }

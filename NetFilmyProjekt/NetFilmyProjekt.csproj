@@ -70,6 +70,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>filmdbDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Formsy\AktorzyExtra.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formsy\AktorzyExtra.Designer.cs">
+      <DependentUpon>AktorzyExtra.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formsy\Aktorzy\Aktorzy.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -170,6 +176,9 @@
     <Compile Include="Rezyser.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Formsy\AktorzyExtra.resx">
+      <DependentUpon>AktorzyExtra.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formsy\Aktorzy\Aktorzy.resx">
       <DependentUpon>Aktorzy.cs</DependentUpon>
     </EmbeddedResource>

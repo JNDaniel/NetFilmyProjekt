@@ -37,6 +37,7 @@
             this.rezyserzyBtn = new System.Windows.Forms.Button();
             this.filmyBtn = new System.Windows.Forms.Button();
             this.genresBtn = new System.Windows.Forms.Button();
+            this.extraBtn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmdbDataSetBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.filmBindingSource1)).BeginInit();
@@ -97,11 +98,22 @@
             this.genresBtn.UseVisualStyleBackColor = true;
             this.genresBtn.Click += new System.EventHandler(this.genresBtn_Click);
             // 
+            // extraBtn
+            // 
+            this.extraBtn.Location = new System.Drawing.Point(481, 330);
+            this.extraBtn.Name = "extraBtn";
+            this.extraBtn.Size = new System.Drawing.Size(122, 68);
+            this.extraBtn.TabIndex = 5;
+            this.extraBtn.Text = "AKTORZY DANEGO GATUNKU W ROKU";
+            this.extraBtn.UseVisualStyleBackColor = true;
+            this.extraBtn.Click += new System.EventHandler(this.extraBtn_Click);
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.extraBtn);
             this.Controls.Add(this.genresBtn);
             this.Controls.Add(this.filmyBtn);
             this.Controls.Add(this.rezyserzyBtn);
@@ -124,6 +136,7 @@
         private System.Windows.Forms.Button rezyserzyBtn;
         private System.Windows.Forms.Button filmyBtn;
         private System.Windows.Forms.Button genresBtn;
+        private System.Windows.Forms.Button extraBtn;
     }
 }
 
